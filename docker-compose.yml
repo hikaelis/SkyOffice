@@ -16,7 +16,7 @@ services:
     working_dir: /usr/app/SkyOffice/client
     tty: true
     ports:
-      - "80:5173"
+      - "8443:5173"
     volumes:
       - "./:/usr/app/SkyOffice"
     command:
