@@ -1,3 +1,16 @@
+Use https and docker
+
+```bash
+$ apt install -y mkcert # install mkcert
+$ mkcert -install # make local Certificate Authority
+
+$ cd ./cert
+$ mkcert localhost # make key and certification
+
+$ docker compose up -d
+```
+
+
 # SkyOffice ![License](https://img.shields.io/badge/license-MIT-blue) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)
 
 <img alt="Logo" align="right" src="https://user-images.githubusercontent.com/11501902/139942585-a6b044ce-3695-460a-91bd-dd9f1d4611c8.png" width="20%" />
@@ -21,12 +34,20 @@ SkyOffice works on all PC browsers (mobile browsers are currently not supported)
 
 ## Features
 
-- [Proximity Chat](#proximity-chat-distance-based-interactive-system)
-- [Flexible Screen Sharing](#flexible--immediate-screen-sharing)
-- [Multifunctional Rooms](#multifunctional-rooms)
-- [Text Message Chat](#text-message-chat-with-real-time-dialog-bubbles)
-- [Custom/Private Rooms](#customprivate-rooms)
-- [Embedded Whiteboards](#embedded-whiteboards) (iframe embed of [WBO](https://github.com/lovasoa/whitebophir))
+- [SkyOffice  ](#skyoffice--)
+  - [Built with](#built-with)
+  - [Features](#features)
+    - [Proximity Chat (distance-based interactive system)](#proximity-chat-distance-based-interactive-system)
+    - [Multifunctional Rooms](#multifunctional-rooms)
+    - [Flexible \& Immediate Screen Sharing](#flexible--immediate-screen-sharing)
+    - [Text Message Chat (with real time dialog bubbles)](#text-message-chat-with-real-time-dialog-bubbles)
+    - [Embedded Whiteboards](#embedded-whiteboards)
+    - [Custom/Private Rooms](#customprivate-rooms)
+  - [Controls](#controls)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+  - [Credits 🎉](#credits-)
+  - [License](#license)
 
 ### Proximity Chat (distance-based interactive system)
 
