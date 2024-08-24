@@ -1,13 +1,18 @@
-import http from 'http'
+import https from 'https'
 import express from 'express'
 import cors from 'cors'
+import fs from 'fs'
 import { Server, LobbyRoom } from 'colyseus'
 import { monitor } from '@colyseus/monitor'
 import { RoomType } from '../types/Rooms'
-
 // import socialRoutes from "@colyseus/social/express"
-
 import { SkyOffice } from './rooms/SkyOffice'
+
+// SSL 証明書と秘密鍵のパスを指定
+const privateKey = fs.readFileSync('../cert/localhost-key.pem', 'utf8');
+const certificate = fs.readFileSync('../cert/localhost.pem', 'utf8');
+
+const credentials = { key: privateKey, cert: certificate };
 
 const port = Number(process.env.PORT || 2567)
 const app = express()
@@ -16,7 +21,8 @@ app.use(cors())
 app.use(express.json())
 // app.use(express.static('dist'))
 
-const server = http.createServer(app)
+// HTTPS サーバーを作成
+const server = https.createServer(credentials, app)
 const gameServer = new Server({
   server,
 })
@@ -43,4 +49,4 @@ gameServer.define(RoomType.CUSTOM, SkyOffice).enableRealtimeListing()
 app.use('/colyseus', monitor())
 
 gameServer.listen(port)
-console.log(`Listening on ws://localhost:${port}`)
+console.log(`Listening on https://localhost:${port}`)
